@@ -17,5 +17,13 @@ namespace SaqTests
             var s2 = PdfFixHelper.GetFixedString(s);
             Assert.AreNotEqual(s, s2);
         }
+
+        [Test]
+        public void ShouldNotIntroduceCarriageReturns()
+        {
+            const string s = @"(jestem )Tj<012e0105>Tj( i omegom.)Tj";
+            var s2 = PdfFixHelper.GetFixedString(s);
+            Assert.IsFalse(s2.Contains('\r'));
+        }
     }
 }

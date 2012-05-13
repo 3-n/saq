@@ -19,7 +19,7 @@ namespace SaqFetch
             var reader = new StreamReader(stream);
             string theText = reader.ReadToEnd();
 
-            var parsedLines = theText.Split('\n')
+            var parsedLines = theText.Split(new[]{'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(line => line.Split(' '))
                 .Select(line => new KeyValuePair<string, string>(line.First(), line.Last()));
 
