@@ -70,7 +70,7 @@ namespace SaqFetch
 
         public static string GetFixedContents(this PdfReader reader, int pageNumber)
         {
-            return GetFixedString(Encoding.UTF8.GetString(reader.GetPageContent(pageNumber)));
+            return GetFixedString(Encoding.UTF7.GetString(reader.GetPageContent(pageNumber)));
         }
     }
 }
