@@ -12,7 +12,16 @@ namespace ConsoleViewer
     {
         static void Main(string[] args)
         {
-            Fetcher.DoStuff(args);
+            //Fetcher.DoStuff(args);
+            var testDoc = new Document("test.pdf");
+            using (var outFile = File.CreateText("out.txt"))
+            {
+                foreach (var q in testDoc.RawQuestionsText)
+                {
+                    outFile.WriteLine(q);
+                    outFile.WriteLine();
+                }
+            }
         }
     }
 }
