@@ -12,7 +12,6 @@ namespace ConsoleViewer
     {
         static void Main(string[] args)
         {
-            //Fetcher.DoStuff(args);
             var testDoc = new Document("test.pdf");
             using (var outFile = File.CreateText("out.txt"))
             {
