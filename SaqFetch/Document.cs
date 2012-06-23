@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using SaqRepresentation;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 
@@ -24,6 +25,14 @@ namespace SaqFetch
             documentDate = DateTime.Parse(Regex.Match(pages.Last(), @"[\p{L}][\p{L}][\p{L}]+[\p{Z}]+[0-9]{4}").Value);
         }
 
+        public IEnumerable<Task> Tasks
+        {
+            get
+            {
+                return RawTasksText.Select(t => t.Task());
+            }
+        } 
+
         public string RawText 
         {
             get 
@@ -32,20 +41,20 @@ namespace SaqFetch
             }
         }
 
-        public List<string> RawQuestionsText
+        public List<string> RawTasksText
         {
             get
             {
-                var questions = new List<string>();
+                var tasks = new List<string>();
                 foreach (var pageChunks in pages.Select(page => page.Split(new[] {" Nr "}, StringSplitOptions.RemoveEmptyEntries)))
                 {
-                    questions.AddRange(pageChunks.Where(IsQuestion).Select(RemoveBeaurocracy));
+                    tasks.AddRange(pageChunks.Where(IsTask).Select(RemoveBeaurocracy));
                 }
-                return questions;
+                return tasks;
             }
         }
 
-        private bool IsQuestion(string textChunk)
+        private bool IsTask(string textChunk)
         {
             return new[]
                     {
@@ -135,8 +144,6 @@ namespace SaqFetch
 
                 pages.Add(stringChars.Select(c => c.ToString(CultureInfo.InvariantCulture)).Aggregate((a, b) => a + b));
             }
-
         }
-
     }
 }

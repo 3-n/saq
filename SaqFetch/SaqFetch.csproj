@@ -43,11 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fetcher.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="DocumentParsingExtensions.cs" />
     <Compile Include="PdfFixHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SaqRepresentation\SaqRepresentation.csproj">
+      <Project>{1E6EA48C-0298-42F7-95B9-6CC830A52E21}</Project>
+      <Name>SaqRepresentation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FixDictionary.txt" />
   </ItemGroup>
