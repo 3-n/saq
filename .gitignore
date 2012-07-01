@@ -16,3 +16,5 @@ _ReSharper.*
 Ankh.NoLoad
 # mstest test results
 TestResults
+# monodevelop prefs
+*.userprefs
