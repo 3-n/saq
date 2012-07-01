@@ -41,6 +41,12 @@
   <ItemGroup>
     <Compile Include="Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Problem.cs" />
+    <Compile Include="SelectableSolution.cs" />
+    <Compile Include="Solution.cs" />
+    <Compile Include="Choice.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="TranslationExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

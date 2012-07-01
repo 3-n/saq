@@ -46,6 +46,7 @@
     <Compile Include="DocumentParsingExtensions.cs" />
     <Compile Include="PdfFixHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DocumentSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SaqRepresentation\SaqRepresentation.csproj">
