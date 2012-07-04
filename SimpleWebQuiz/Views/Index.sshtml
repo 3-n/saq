@@ -1,0 +1,7 @@
+@Master['MasterPage']
+
+@Section['Question']
+
+@Partial['Question'];
+
+@EndSection

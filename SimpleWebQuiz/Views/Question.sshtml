@@ -1,0 +1,14 @@
+@Model.AnsweredCorrectly
+<br>
+@Model.RandomTask.Problem
+<form action=/@Model.PerfectlyRandom/ method="post">
+@Each.RandomTask.Solution.Choices <br>
+<input type="radio" name=aid value=@Current.Key> @Current.Value <br>
+@EndEach
+<br>
+<input type="submit" value="Check if answer is correct">
+</form>
+<br>
+<form action=/ method="get"">
+<input type="submit" value="Next question please">
+</form>
