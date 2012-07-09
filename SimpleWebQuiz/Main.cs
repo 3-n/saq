@@ -1,6 +1,7 @@
 using System;
 using Nancy;
 using Nancy.Hosting.Self;
+using Nancy.Hosting.Aspnet;
 using SimpleWebQuiz.Models;
 
 namespace SimpleWebQuiz
