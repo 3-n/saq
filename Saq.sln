@@ -19,6 +19,16 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|x86.ActiveCfg = Release|Any CPU
 		{1E6EA48C-0298-42F7-95B9-6CC830A52E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E6EA48C-0298-42F7-95B9-6CC830A52E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E6EA48C-0298-42F7-95B9-6CC830A52E21}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -39,16 +49,6 @@ Global
 		{26BC1A15-419A-4956-8264-AB08B665A3AE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{26BC1A15-419A-4956-8264-AB08B665A3AE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{26BC1A15-419A-4956-8264-AB08B665A3AE}.Release|x86.ActiveCfg = Release|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|x86.ActiveCfg = Release|Any CPU
 		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|Any CPU.ActiveCfg = Debug|Mixed Platforms
 		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|Any CPU.Build.0 = Debug|Mixed Platforms
 		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|Mixed Platforms.ActiveCfg = Debug|Mixed Platforms
@@ -62,10 +62,10 @@ Global
 		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|x86.ActiveCfg = Release|Mixed Platforms
 		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|x86.Build.0 = Release|Mixed Platforms
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = SimpleWebQuiz\SimpleWebQuiz.csproj
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SimpleWebQuiz\SimpleWebQuiz.csproj
 	EndGlobalSection
 EndGlobal
