@@ -53,9 +53,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SaqRepresentation\SaqRepresentation.csproj">
       <Project>{1E6EA48C-0298-42F7-95B9-6CC830A52E21}</Project>
       <Name>SaqRepresentation</Name>
@@ -71,5 +68,6 @@
     <Content Include="Views\Question.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
 </Project>
