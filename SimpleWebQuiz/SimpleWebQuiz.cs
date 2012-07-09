@@ -13,7 +13,7 @@ namespace SimpleWebQuiz
 
 		public SimpleWebQuiz()
 		{
-			Get["/"] = _ => 
+			Get["/"] = _ =>
 			{
                 Console.WriteLine("default");
                 if(model==null)
