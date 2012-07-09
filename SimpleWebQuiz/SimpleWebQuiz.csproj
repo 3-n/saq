@@ -33,9 +33,6 @@
     <Reference Include="Nancy">
       <HintPath>..\lib\Nancy.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.Hosting.Self">
-      <HintPath>..\lib\Nancy.Hosting.Self.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Nancy.Hosting.Aspnet">
