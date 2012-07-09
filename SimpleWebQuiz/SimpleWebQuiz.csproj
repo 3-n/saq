@@ -76,10 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.Debug.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
 </Project>
