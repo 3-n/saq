@@ -6,12 +6,6 @@ using SimpleWebQuiz.Models;
 
 namespace SimpleWebQuiz
 {
-	class MainClass
-	{
-		public static void Main(string[] args)
-		{
-		}
-	}
 
 	public class SimpleWebQuiz : NancyModule
 	{
