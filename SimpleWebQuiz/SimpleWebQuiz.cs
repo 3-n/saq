@@ -1,22 +1,10 @@
 using System;
 using Nancy;
-using Nancy.Hosting.Self;
 using Nancy.Hosting.Aspnet;
 using SimpleWebQuiz.Models;
 
 namespace SimpleWebQuiz
 {
-	class MainClass
-	{
-		public static void Main(string[] args)
-		{
-			StaticConfiguration.DisableCaches = true;
-		    var host = new NancyHost(new Uri("http://localhost:80"));
-		    host.Start();
-		    Console.ReadLine ();
-		    host.Stop();
-		}
-	}
 
 	public class SimpleWebQuiz : NancyModule
 	{
@@ -24,7 +12,7 @@ namespace SimpleWebQuiz
 
 		public SimpleWebQuiz()
 		{
-			Get["/"] = _ => 
+			Get["/"] = _ =>
 			{
                 Console.WriteLine("default");
                 if(model==null)

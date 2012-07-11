@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaqFetch", "SaqFetch\SaqFetch.csproj", "{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleViewer", "ConsoleViewer\ConsoleViewer.csproj", "{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaqRepresentation", "SaqRepresentation\SaqRepresentation.csproj", "{1E6EA48C-0298-42F7-95B9-6CC830A52E21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaqTests", "SaqTests\SaqTests.csproj", "{26BC1A15-419A-4956-8264-AB08B665A3AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebQuiz", "SimpleWebQuiz\SimpleWebQuiz.csproj", "{58E12EAA-0963-48C7-94B8-180F10D29429}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebQuiz", "SimpleWebQuiz\SimpleWebQuiz.csproj", "{7C630184-357D-4110-A1D0-5087900F859A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,28 +49,18 @@ Global
 		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}.Release|x86.ActiveCfg = Release|Any CPU
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|Any CPU.ActiveCfg = Debug|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|Any CPU.Build.0 = Debug|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|Mixed Platforms.ActiveCfg = Debug|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|Mixed Platforms.Build.0 = Debug|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|x86.ActiveCfg = Debug|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Debug|x86.Build.0 = Debug|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|Any CPU.ActiveCfg = Release|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|Any CPU.Build.0 = Release|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|Mixed Platforms.ActiveCfg = Release|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|Mixed Platforms.Build.0 = Release|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|x86.ActiveCfg = Release|Mixed Platforms
-		{58E12EAA-0963-48C7-94B8-180F10D29429}.Release|x86.Build.0 = Release|Mixed Platforms
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Debug|x86.ActiveCfg = Debug|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Debug|x86.Build.0 = Debug|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Release|Any CPU.ActiveCfg = Release|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Release|Mixed Platforms.Build.0 = Release|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Release|x86.ActiveCfg = Release|x86
-		{C6047B0F-8DF9-4CB0-AAFA-1FA0E36C8841}.Release|x86.Build.0 = Release|x86
+		{7C630184-357D-4110-A1D0-5087900F859A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C630184-357D-4110-A1D0-5087900F859A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = SimpleWebQuiz\SimpleWebQuiz.csproj
