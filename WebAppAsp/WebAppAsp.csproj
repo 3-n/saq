@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -10,6 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>SimpleWebQuiz</RootNamespace>
     <AssemblyName>SimpleWebQuiz</AssemblyName>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,13 +51,29 @@
         <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="true" />
       </Properties>
     </MonoDevelop>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>48217</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Models\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Models\Questions.cs" />
     <Compile Include="SimpleWebQuiz.cs" />
     <Compile Include="AssemblyInfo.cs">
