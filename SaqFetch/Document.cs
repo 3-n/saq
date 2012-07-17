@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using SaqRepresentation;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
+using System.Diagnostics;
 
 namespace SaqFetch
 {
@@ -141,11 +142,14 @@ namespace SaqFetch
                     }
                 }
 
-                using (var log = File.CreateText("unknown-entities.txt"))
+                if(Debugger.IsAttached)
                 {
-                    foreach (var unknownEntity in PdfFixHelper.UnknownEntities)
+                    using (var log = File.CreateText("unknown-entities.txt"))
                     {
-                        log.WriteLine(unknownEntity);
+                        foreach (var unknownEntity in PdfFixHelper.UnknownEntities)
+                        {
+                            log.WriteLine(unknownEntity);
+                        }
                     }
                 }
 
