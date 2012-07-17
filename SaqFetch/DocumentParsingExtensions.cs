@@ -37,7 +37,7 @@ namespace SaqFetch
             {
                 Category = Category.NotSet,
                 Number = Int32.Parse(new string(task.TakeWhile(c => c != '.').ToArray())),
-                Problem = new Problem { Text = rawProblem },
+                Problem = new Problem { Text = Regex.Replace(rawProblem, @"^[0-9]+\.\ +", "") },
                 Solution = new SelectableSolution { Choices = choiceDictionary, Correct = new[] { (Choice)r.Next(5) }.ToList() }
             };
         }
