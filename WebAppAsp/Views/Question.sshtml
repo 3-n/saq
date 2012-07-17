@@ -3,12 +3,14 @@
 @Model.RandomTask.Problem
 <form action=/@Model.PerfectlyRandom/ method="post">
 @Each.RandomTask.Solution.Choices <br>
-<input type="radio" name=aid value=@Current.Key> @Current.Value <br>
+<input id="r@Current.Key" type="radio" name=aid value=@Current.Key onclick="this.form.submit();"><label for="r@Current.Key">@Current.Value</label><br>
 @EndEach
 <br>
-<input type="submit" value="Check if answer is correct">
+<!-- <input type="submit" value="Check if answer is correct"> -->
 </form>
 <br>
+@If.Answered
 <form action=/ method="get"">
 <input type="submit" value="Next question please">
 </form>
+@EndIf

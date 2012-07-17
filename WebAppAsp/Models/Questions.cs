@@ -42,12 +42,14 @@ namespace SimpleWebQuiz.Models
         }
 
         public string AnsweredCorrectly { get; set; }
+        public bool Answered { get; set; }
 
         public Questions(string qid, string aid) : this(false)
         {
             perfectlyRandom = Int32.Parse(qid);
             var givenChoice = (Choice)Enum.Parse(typeof(Choice), aid);
             AnsweredCorrectly = (givenChoice == ((SelectableSolution)FakeDb.Tasks[perfectlyRandom].Solution).Correct.First()) ? "<h3><font color=\"green\">Correct!</font> :)</h3>" : "<h3><font color=\"red\">Incorrect!</font> :(</h3>";
+            Answered = true;
             Console.WriteLine("q" + perfectlyRandom + " " + givenChoice + "vs" + ((SelectableSolution)FakeDb.Tasks[perfectlyRandom].Solution).Correct.First() + " --> " + AnsweredCorrectly);
             Console.WriteLine(String.Format("parsed {0} {1}", qid, perfectlyRandom));
         }
