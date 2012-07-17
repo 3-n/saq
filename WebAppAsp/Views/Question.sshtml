@@ -1,16 +1,20 @@
-@Model.AnsweredCorrectly
-<br>
+<div style="width:90%; margin:0 auto; min-width:320px; border-width:1px; font-size: 2em; border-radius:7px; border-style:solid; padding:10px">
+<p style="text-align: justify">
 @Model.RandomTask.Problem
+</p>
 <form action=/@Model.PerfectlyRandom/ method="post">
 @Each.RandomTask.Solution.Choices <br>
+<div style="border-width:1px; border-radius:7px; border-style:solid; padding:10px; background-color:lightgray">
 <input id="r@Current.Key" type="radio" name=aid value=@Current.Key onclick="this.form.submit();"><label for="r@Current.Key">@Current.Value</label><br>
+</div>
 @EndEach
 <br>
 <!-- <input type="submit" value="Check if answer is correct"> -->
 </form>
-<br>
 @If.Answered
+@Model.AnsweredCorrectly
 <form action=/ method="get"">
-<input type="submit" value="Next question please">
+<input style="font-size: 2em;" type="submit" value="Next question please">
 </form>
 @EndIf
+</div>
