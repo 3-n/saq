@@ -25,6 +25,13 @@ namespace SaqFetch
             documentDate = DateTime.Parse(Regex.Match(pages.Last(), @"[\p{L}][\p{L}][\p{L}]+[\p{Z}]+[0-9]{4}").Value);
         }
 
+        public Document(Uri url)//TODO: tumble dry
+        {
+            reader = new PdfReader(url);
+            ProducePagedFixedText();
+            documentDate = DateTime.Parse(Regex.Match(pages.Last(), @"[\p{L}][\p{L}][\p{L}]+[\p{Z}]+[0-9]{4}").Value);
+        }
+
         public IEnumerable<Task> Tasks
         {
             get

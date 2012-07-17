@@ -100,5 +100,9 @@
       <Project>{1E6EA48C-0298-42F7-95B9-6CC830A52E21}</Project>
       <Name>SaqRepresentation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SaqFetch\SaqFetch.csproj">
+      <Project>{34C9AF7D-23F2-4B9D-AF73-A1F52897EC7F}</Project>
+      <Name>SaqFetch</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

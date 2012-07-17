@@ -2,6 +2,7 @@ using System;
 using Nancy;
 using Nancy.Hosting.Aspnet;
 using SimpleWebQuiz.Models;
+using System.Diagnostics;
 
 namespace SimpleWebQuiz
 {
@@ -9,9 +10,15 @@ namespace SimpleWebQuiz
 	public class SimpleWebQuiz : NancyModule
 	{
         Questions model;
+        private static bool outputSupress = false;
 
 		public SimpleWebQuiz()
 		{
+            if(!outputSupress)
+            {
+                InitWithLog();
+            }
+
 			Get["/"] = _ =>
 			{
                 Console.WriteLine("default");
@@ -31,6 +38,15 @@ namespace SimpleWebQuiz
                 return View["Index", model];
             };
 		}
+
+        private static void InitWithLog()
+        {
+            var sw = new Stopwatch();
+            sw.Start();
+            var foo = FakeDb.Tasks.Count;
+            Console.WriteLine("Initialized task DB in about {0}s", sw.Elapsed.TotalSeconds);
+            outputSupress = true;
+        }
 	}
 }
 
