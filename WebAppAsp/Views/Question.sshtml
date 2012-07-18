@@ -1,20 +1,30 @@
-<div style="width:90%; margin:0 auto; min-width:320px; border-width:1px; font-size: 2em; border-radius:7px; border-style:solid; padding:10px">
+<div style="width:90%; margin:0 auto; min-width:320px; border-width:1px; font-size: 2em; border-radius:9px; border-style:solid; background-color:#eeeeff; padding:10px">
 <p style="text-align: justify">
 @Model.RandomTask.Problem
 </p>
+@If.Answered
+<form action=/ method="get"">
+<div style="border-width:1px; border-radius:11px; border-style:solid; background-color:white;">
+<input style="display:none;" type="submit" id="next">
+<label style="display: block; text-align: center; vertical-align: middle; padding:10px; min-height:1.5em;" for="next">DAWAJ NASTĘPNE PYTANIE!</label>
+</div>
+</form>
+@EndIf
 <form action=/@Model.PerfectlyRandom/ method="post">
-@Each.RandomTask.Solution.Choices <br>
-<div style="border-width:1px; border-radius:7px; border-style:solid; padding:10px; background-color:lightgray">
-<input id="r@Current.Key" type="radio" name=aid value=@Current.Key onclick="this.form.submit();"><label for="r@Current.Key">@Current.Value</label><br>
+@Each.ChoicesDisplay <br>
+<div style="border-width:1px; border-radius:11px; border-style:solid; background-color:@Current.Value.Color">
+<input style="display:none;" id="r@Current.Key" type="radio" name=aid value=@Current.Key onclick="this.form.submit();">
+<label style="display: block; vertical-align: middle; padding:10px; min-height:1.5em;" for="r@Current.Key">@Current.Value</label><br>
 </div>
 @EndEach
 <br>
-<!-- <input type="submit" value="Check if answer is correct"> -->
 </form>
 @If.Answered
-@Model.AnsweredCorrectly
 <form action=/ method="get"">
-<input style="font-size: 2em;" type="submit" value="Next question please">
+<div style="border-width:1px; border-radius:11px; border-style:solid; background-color:white;">
+<input style="display:none;" type="submit" id="next">
+<label style="display: block; text-align: center; vertical-align: middle; padding:10px; min-height:1.5em;" for="next">DAWAJ NASTĘPNE PYTANIE!</label>
+</div>
 </form>
 @EndIf
 </div>
