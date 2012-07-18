@@ -6,10 +6,36 @@ using System.Text.RegularExpressions;
 
 namespace SaqRepresentation
 {
+    public class ChoiceData
+    {
+        public Choice Choice { get; set; }
+        public string Text { get; set; }
+        public bool IsCorrect { get; set; }
+        public string Out { get; set; }
+
+        public override string ToString()
+        {
+            return Text;
+        }
+    }
 
     public class SelectableSolution : Solution
     {
         public List<Choice> Correct = new List<Choice>();
+
+        public Dictionary<Choice, ChoiceData> ChoiceData
+        {
+            get
+            {
+                return Choices
+                    .ToDictionary(pair => pair.Key, pair => new ChoiceData
+                    {
+                        Choice = pair.Key,
+                        Text = pair.Value,
+                        IsCorrect = Correct.Contains(pair.Key)
+                    });
+            }
+        }
 
 		private Dictionary<Choice, string> unfixedChoices;
 		public Dictionary<Choice, string> Choices 

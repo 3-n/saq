@@ -13,11 +13,28 @@ namespace SimpleWebQuiz.Models
         static FakeDb()
         {
             Tasks = new Document(new Uri("http://cem.edu.pl/lep_testy/12L1.pdf")).Tasks.ToList();
+        }
+    }
 
-            foreach (var task in Tasks)
+    public class DisplayChoiceData : ChoiceData
+    {
+        public Choice? UsersChoice { get; set; }
+        public string Color
+        {
+            get
             {
-                ((SelectableSolution)task.Solution).Correct = new List<Choice> { Choice.D };
+                var highlight = IsCorrect ? "green;" : "red;";
+                var ret = UsersChoice==Choice ? highlight : "lightgray;";
+                return ret;
             }
+        }
+
+        public DisplayChoiceData(ChoiceData choiceData, Choice? usersChoice)
+        {
+            Choice = choiceData.Choice;
+            Text = choiceData.Text;
+            IsCorrect = choiceData.IsCorrect;
+            UsersChoice = usersChoice;
         }
     }
 
@@ -41,16 +58,26 @@ namespace SimpleWebQuiz.Models
             }
         }
 
-        public string AnsweredCorrectly { get; set; }
+        public string AnswerColor { get; set; }
         public bool Answered { get; set; }
+        public Choice? GivenChoice { get; set; }
+
+        public Dictionary<Choice, DisplayChoiceData> ChoicesDisplay
+        {
+            get
+            {
+                return ((SelectableSolution)RandomTask.Solution).ChoiceData
+                    .ToDictionary(pair => pair.Key, pair => new DisplayChoiceData(pair.Value, GivenChoice));
+            }
+        }
 
         public Questions(string qid, string aid) : this(false)
         {
             perfectlyRandom = Int32.Parse(qid);
-            var givenChoice = (Choice)Enum.Parse(typeof(Choice), aid);
-            AnsweredCorrectly = (givenChoice == ((SelectableSolution)FakeDb.Tasks[perfectlyRandom].Solution).Correct.First()) ? "<h3><font color=\"green\">Correct!</font> :)</h3>" : "<h3><font color=\"red\">Incorrect!</font> :(</h3>";
+            GivenChoice = (Choice)Enum.Parse(typeof(Choice), aid);
+            AnswerColor = (GivenChoice == ((SelectableSolution)FakeDb.Tasks[perfectlyRandom].Solution).Correct.First()) ? "green" : "red";
             Answered = true;
-            Console.WriteLine("q" + perfectlyRandom + " " + givenChoice + "vs" + ((SelectableSolution)FakeDb.Tasks[perfectlyRandom].Solution).Correct.First() + " --> " + AnsweredCorrectly);
+            Console.WriteLine("q" + perfectlyRandom + " " + GivenChoice + "vs" + ((SelectableSolution)FakeDb.Tasks[perfectlyRandom].Solution).Correct.First() + " --> " + AnswerColor);
             Console.WriteLine(String.Format("parsed {0} {1}", qid, perfectlyRandom));
         }
 
