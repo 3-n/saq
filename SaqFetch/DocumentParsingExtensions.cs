@@ -16,7 +16,7 @@ namespace SaqFetch
             return (Choice)Enum.Parse(typeof(Choice), Regex.Match(choice, @"[a-zA-Z]").Value, true);
         }
 
-        public static Task Task(this string task)
+        public static Task Task(this string task, Choice? correct = null)
         {
             var rawProblem = task.Split(new[] { " A. " }, StringSplitOptions.RemoveEmptyEntries).First();
             var rawSolution = " A. " + task.Split(new[] { " A. " }, StringSplitOptions.RemoveEmptyEntries).Last();
@@ -36,10 +36,18 @@ namespace SaqFetch
             return new Task
             {
                 Category = Category.NotSet,
-                Number = Int32.Parse(new string(task.TakeWhile(c => c != '.').ToArray())),
+                Number = task.TaskNumber(),
                 Problem = new Problem { Text = Regex.Replace(rawProblem, @"^[0-9]+\.\ +", "") },
-                Solution = new SelectableSolution { Choices = choiceDictionary, Correct = new[] { (Choice)r.Next(5) }.ToList() }
+                Solution = new SelectableSolution 
+                { 
+                    Choices = choiceDictionary, 
+                    Correct = new[] { correct ?? Choice.A }.ToList() }
             };
+        }
+
+        public static int TaskNumber(this string task)
+        {
+            return Int32.Parse(new string(task.TakeWhile(c => c != '.').ToArray()));
         }
     }
 }

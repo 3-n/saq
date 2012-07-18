@@ -14,22 +14,38 @@ namespace SaqFetch
 {
     public class Document
     {
-        private readonly PdfReader reader;
+        private readonly PdfReader taskReader;
         private readonly List<string> pages = new List<string>();
-
+        private readonly Dictionary<int, Choice> solutions = new Dictionary<int, Choice>();
         private DateTime documentDate;
 
-        public Document(string filePath)
+        public Document(string tasksFilePath, string solutionsFilePath = null) : this(
+            new PdfReader(tasksFilePath),
+            new PdfReader(solutionsFilePath ?? (tasksFilePath.Replace(".pdf", "_klucz.pdf"))))
         {
-            reader = new PdfReader(filePath);
-            ProducePagedFixedText();
-            //documentDate = DateTime.Parse(Regex.Match(pages.Last(), @"[\p{L}][\p{L}][\p{L}]+[\p{Z}]+[0-9]{4}").Value);
         }
 
-        public Document(Uri url)//TODO: tumble dry
+        public Document(Uri tasksFile, Uri solutionsFile = null) : this(
+            new PdfReader(tasksFile),
+            new PdfReader(solutionsFile ?? new Uri(tasksFile.ToString().Replace(".pdf", "_klucz.pdf"))))
         {
-            reader = new PdfReader(url);
+        }
+
+        public Document(PdfReader tasksFileReader, PdfReader solutionsFileReader)
+        {
+            taskReader = tasksFileReader;
+
+            var answerKeyRaw = PdfTextExtractor.GetTextFromPage(solutionsFileReader, 1);
+            answerKeyRaw = Regex.Replace(answerKeyRaw, @"\s", " ");
+            var answerKeyMatches = Regex.Matches(answerKeyRaw, @"[1-9][0-9]*\ +[A-E]");
+
+            solutions = answerKeyMatches
+                .Cast<Match>()
+                .Select(m => m.Value.Split(new[]{" "}, StringSplitOptions.RemoveEmptyEntries))
+                .ToDictionary(a => Int32.Parse(a.First()), a => (Choice)Enum.Parse(typeof(Choice), a.Last()));
+
             ProducePagedFixedText();
+
             //documentDate = DateTime.Parse(Regex.Match(pages.Last(), @"[\p{L}][\p{L}][\p{L}]+[\p{Z}]+[0-9]{4}").Value);
         }
 
@@ -37,7 +53,7 @@ namespace SaqFetch
         {
             get
             {
-                return RawTasksText.Select(t => t.Task());
+                return RawTasksText.Select(t => t.Task(solutions[t.TaskNumber()]));
             }
         } 
 
@@ -86,12 +102,12 @@ namespace SaqFetch
                 return;
             }
 
-            for (var i = 1; i <= reader.NumberOfPages; i++)
+            for (var i = 1; i <= taskReader.NumberOfPages; i++)
             {
                 var stringChars = new List<char>();
 
                 var active = 0;
-                var q = new Queue<char>(reader.GetFixedContents(i));
+                var q = new Queue<char>(taskReader.GetFixedContents(i));
 
                 while (q.Count > 0)
                 {
