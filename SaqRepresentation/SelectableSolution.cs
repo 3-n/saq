@@ -72,6 +72,14 @@ namespace SaqRepresentation
             }
         }
 
+        public override bool IsPossible
+        {
+            get
+            {
+                return !Correct.Contains(Choice.X);
+            }
+        }
+
 		private List<string> ChoicesSegmentPattern
 		{
 			get

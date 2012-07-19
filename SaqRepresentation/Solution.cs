@@ -11,6 +11,13 @@ namespace SaqRepresentation
     {
         public virtual string UnsolvedText { get; set; }
         public virtual string SolvedText { get; set; }
+        public virtual bool IsPossible
+        {
+            get
+            {
+                return true;
+            }
+        }
 
         public override string ToString()
         {

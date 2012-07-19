@@ -9,7 +9,7 @@ namespace SaqRepresentation
 
     public enum Choice
     {
-        A = 0, B, C, D, E
+        A = 0, B, C, D, E, X = -1
     }
     
 }

@@ -37,7 +37,7 @@ namespace SaqFetch
 
             var answerKeyRaw = PdfTextExtractor.GetTextFromPage(solutionsFileReader, 1);
             answerKeyRaw = Regex.Replace(answerKeyRaw, @"\s", " ");
-            var answerKeyMatches = Regex.Matches(answerKeyRaw, @"[1-9][0-9]*\ +[A-E]");
+            var answerKeyMatches = Regex.Matches(answerKeyRaw, @"[1-9][0-9]*\ +[A-EX]");
 
             solutions = answerKeyMatches
                 .Cast<Match>()
@@ -53,7 +53,9 @@ namespace SaqFetch
         {
             get
             {
-                return RawTasksText.Select(t => t.Task(solutions[t.TaskNumber()]));
+                return RawTasksText
+                    .Select(t => t.Task(solutions[t.TaskNumber()]))
+                    .Where(task => task.Solution.IsPossible);
             }
         } 
 
