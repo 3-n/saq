@@ -43,9 +43,9 @@ namespace SaqFetch
 
         public static string GetFixedString(string s)
         {
-            return Regex.Replace(s, "<[0-9a-f]+>", match =>
+            return Regex.Replace(s, "<[0-9a-fA-F]+>", match =>
             {
-                var m = match.Captures[0].Value.Replace("<", "").Replace(">", "");
+                var m = match.Captures[0].Value.Replace("<", "").Replace(">", "").ToLower();
                 var sb = new StringBuilder();
                 if (m.Length % 4 != 0)
                 {
