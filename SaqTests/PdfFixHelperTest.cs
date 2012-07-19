@@ -33,5 +33,15 @@ namespace SaqTests
             var s2 = PdfFixHelper.GetFixedString(s);
             Assert.IsTrue(s2.Contains('ż'));
         }
+
+        [Test]
+        public void ShouldFixNumberedEntity()
+        {
+            const string s = @"m\363zg";
+            var s2 = PdfFixHelper.GetFixedString(s);
+            Assert.IsTrue(s2.Contains('ó'));
+        }
+
+
     }
 }

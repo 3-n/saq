@@ -43,6 +43,13 @@ namespace SaqFetch
 
         public static string GetFixedString(string s)
         {
+            return s
+                .FixSergeantEntities()
+                .FixNumberedEntities();
+        }
+
+        private static string FixSergeantEntities(this string s)
+        {
             return Regex.Replace(s, "<[0-9a-fA-F]+>", match =>
             {
                 var m = match.Captures[0].Value.Replace("<", "").Replace(">", "").ToLower();
@@ -65,6 +72,23 @@ namespace SaqFetch
                 }
 
                 return String.Format("({0})", sb.ToString());
+            });
+        }
+
+        private static string FixNumberedEntities(this string s)
+        {
+            return Regex.Replace(s, "\\\\[0-9][0-9][0-9]", match =>
+            {
+                var m = match.Captures[0].Value;
+                if(Dictionary.ContainsKey(m))
+                {
+                    return Dictionary[m];
+                }
+                else
+                {
+                    UnknownEntitiesInternal.Add(m);
+                    return m;
+                }
             });
         }
 
