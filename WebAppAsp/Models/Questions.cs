@@ -3,16 +3,31 @@ using System.Linq;
 using SaqRepresentation;
 using System.Collections.Generic;
 using SaqFetch;
+using System.Net;
 
 namespace SimpleWebQuiz.Models
 {
     public static class FakeDb
     {
-        public static List<Task> Tasks;
+        public static List<Task> Tasks = new List<Task>();
 
         static FakeDb()
         {
-            Tasks = new Document(new Uri("http://cem.edu.pl/lep_testy/12L1.pdf")).Tasks.ToList();
+            foreach(var year in Enumerable.Range(8, 5))
+            {
+                foreach(var no in new[]{1,2})
+                {
+                    try
+                    {
+                        Tasks.AddRange(new Document(new Uri(String.Format("http://cem.edu.pl/lep_testy/{0:00}L{1:0}.pdf", year, no))).Tasks);
+                        Console.WriteLine("Processed {0:00}L{1:0}.pdf successfully", year, no);
+                    }
+                    catch(WebException e)
+                    {
+                        Console.WriteLine("{0:00}L{1:0}.pdf does not exist", year, no);
+                    }
+                }
+            }
         }
     }
 
