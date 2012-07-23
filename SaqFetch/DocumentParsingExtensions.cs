@@ -21,7 +21,10 @@ namespace SaqFetch
             var rawProblem = task.Split(new[] { " A. " }, StringSplitOptions.RemoveEmptyEntries).First();
             var rawSolution = " A. " + task.Split(new[] { " A. " }, StringSplitOptions.RemoveEmptyEntries).Last();
 
-            var rawSolutionTexts = rawSolution.Split(new[] { " A. ", " B. ", " C. ", " D. ", " E. " }, StringSplitOptions.RemoveEmptyEntries);
+            var rawSolutionTexts = rawSolution
+                .Split(new[] { " A. ", " B. ", " C. ", " D. ", " E. " }, StringSplitOptions.RemoveEmptyEntries)
+                .Where(text => !String.IsNullOrWhiteSpace(text))
+                .ToArray();
 
             var rawSolutionChoices = Regex.Matches(rawSolution, @"[A-E]{1}\.\ ");
 
