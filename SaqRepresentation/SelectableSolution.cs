@@ -80,7 +80,7 @@ namespace SaqRepresentation
             }
         }
 
-		private List<string> ChoicesSegmentPattern
+		public List<string> ChoicesSegmentPattern
 		{
 			get
 			{

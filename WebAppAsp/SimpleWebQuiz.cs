@@ -3,6 +3,7 @@ using Nancy;
 using Nancy.Hosting.Aspnet;
 using SimpleWebQuiz.Models;
 using System.Diagnostics;
+using System.Linq;
 
 namespace SimpleWebQuiz
 {
@@ -36,6 +37,17 @@ namespace SimpleWebQuiz
                 Console.WriteLine(aid);
                 model = new Questions(parameters["qid"], aid);
                 return View["Index", model];
+            };
+
+            Get["/info"] = _ =>
+            {
+                return new Questions().AllTasks
+                    .Select(task =>
+                        String.Format("Q{0}: {1}{2}",
+                            task.Number,
+                            task.ToString().Substring(0, Math.Min(task.ToString().Length, 50)),
+                            (task.Number%10)==0?"<br><br>":""))
+                    .Aggregate((a, b) => a + "<br>" + b);
             };
 		}
 

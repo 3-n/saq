@@ -71,6 +71,22 @@ namespace SimpleWebQuiz.Models
             }
         }
 
+        public int TaskCount
+        {
+            get
+            {
+                return FakeDb.Tasks.Count;
+            }
+        }
+
+        public IEnumerable<Task> AllTasks
+        {
+            get
+            {
+                return FakeDb.Tasks;
+            }
+        }
+
         public Questions(string qid, string aid) : this(false)
         {
             perfectlyRandom = Int32.Parse(qid);

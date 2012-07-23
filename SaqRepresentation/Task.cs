@@ -39,7 +39,14 @@ namespace SaqRepresentation
 
         public override string ToString()
         {
-            return Problem + "\n" + Solution + "\n\n";
+            try
+            {
+                return Problem + "\n" + Solution + "\n\n";
+            }
+            catch (NotSupportedException ex)
+            {
+                return String.Format("{0}", ((SelectableSolution)Solution).ChoicesSegmentPattern.Aggregate((a, b) => a + b));
+            }
         }
     }
 
