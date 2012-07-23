@@ -45,7 +45,8 @@ namespace SaqFetch
         {
             return s
                 .FixSergeantEntities()
-                .FixNumberedEntities();
+                .FixNumberedEntities()
+                .FixUnexpectedControlCharacters();
         }
 
         private static string FixSergeantEntities(this string s)
@@ -88,6 +89,24 @@ namespace SaqFetch
                 {
                     UnknownEntitiesInternal.Add(m);
                     return m;
+                }
+            });
+        }
+
+        private static string FixUnexpectedControlCharacters(this string s)
+        {
+            return Regex.Replace(s, "\\([\\u0001-\\u001A]\\)", match =>
+            {
+                var m = match.Captures[0].Value.Replace("(", "").Replace(")", "");
+                if(Dictionary.ContainsKey(m))
+                {
+                    var tmp = String.Format("{0} U+{1:x4} {2}", m, (int)m.ToCharArray().First(), (int)m.ToCharArray().First());
+                    return String.Format("({0})", Dictionary[m]);
+                }
+                else
+                {
+                    UnknownEntitiesInternal.Add(m);
+                    return String.Format("({0})", m);
                 }
             });
         }
