@@ -103,13 +103,13 @@ namespace SaqFetch
             {
                 return;
             }
-            using(var f = File.CreateText("raw.txt"))
+
             for (var i = 1; i <= taskReader.NumberOfPages; i++)
             {
                 var stringChars = new List<char>();
 
                 var active = 0;
-                f.WriteLine(taskReader.GetFixedContents(i));
+
                 var q = new Queue<char>(taskReader.GetFixedContents(i));
 
                 while (q.Count > 0)
